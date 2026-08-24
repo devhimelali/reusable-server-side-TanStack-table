@@ -36,6 +36,7 @@ export default function ProductsIndex({
                     query={query}
                     url={(params) => index.url({ query: params })}
                     reload={reload}
+                    pagination="full"
                     filterFields={[
                         {
                             id: 'status',

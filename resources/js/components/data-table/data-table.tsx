@@ -2,6 +2,7 @@ import { DataTablePagination } from '@/components/data-table/pagination';
 import { DataTableToolbar } from '@/components/data-table/toolbar';
 import type {
     DataTableFilterField,
+    DataTablePaginationVariant,
     DataTableQueryState,
     DataTableUrl,
     Paginator,
@@ -24,6 +25,7 @@ type DataTableProps<TData extends { id: number | string }> = {
     url: DataTableUrl;
     filterFields?: DataTableFilterField[];
     reload?: string[];
+    pagination?: DataTablePaginationVariant;
 };
 
 export function DataTable<TData extends { id: number | string }>({
@@ -33,6 +35,7 @@ export function DataTable<TData extends { id: number | string }>({
     url,
     filterFields,
     reload,
+    pagination = 'simple',
 }: DataTableProps<TData>) {
     const {
         table,
@@ -130,7 +133,11 @@ export function DataTable<TData extends { id: number | string }>({
                 </Table>
             </div>
 
-            <DataTablePagination table={table} paginator={paginator} />
+            <DataTablePagination
+                table={table}
+                paginator={paginator}
+                variant={pagination}
+            />
         </div>
     );
 }

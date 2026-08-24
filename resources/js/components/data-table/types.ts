@@ -31,3 +31,6 @@ export type DataTableFilterField = {
 };
 
 export type DataTableUrl = (query: QueryParams) => string;
+
+export type DataTablePaginationVariant =
+    'simple' | 'compact' | 'numbered' | 'full';
